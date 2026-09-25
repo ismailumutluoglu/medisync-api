@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Microsoft.AspNetCore.Authorization;
+using MediatR;
 using MediSync.Application.Features.Appointments.Commands.CreateAppointment;
 using MediSync.Application.Features.Appointments.Queries.GetAllAppointments;
 using Microsoft.AspNetCore.Mvc;
@@ -6,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace MediSync.API.Controllers
 {
     [ApiController]
+    [Authorize]
     [Route("api/[controller]")]
     public class AppointmentsController : ControllerBase
     {
