@@ -1,10 +1,18 @@
 ﻿using MediatR;
 using MediSync.Domain.Entities;
+using MediSync.Domain.Interfaces;
 
 namespace MediSync.Application.Features.Appointments.Commands.CreateAppointment
 {
     public class CreateAppointmentHandler : IRequestHandler<CreateAppointmentCommand, int>
     {
+        private readonly IAppointmentRepository _repository;
+
+        public CreateAppointmentHandler(IAppointmentRepository repository)
+        {
+            _repository = repository;
+        }
+
         public async Task<int> Handle(CreateAppointmentCommand request, CancellationToken cancellationToken)
         {
             var appointment = new Appointment
@@ -17,8 +25,7 @@ namespace MediSync.Application.Features.Appointments.Commands.CreateAppointment
                 CreatedAt = DateTime.UtcNow
             };
 
-            // Repository buraya gelecek
-            return appointment.Id;
+            return await _repository.CreateAsync(appointment);
         }
     }
 }
