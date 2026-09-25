@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MediSync.Application\MediSync.Application.csproj" />
+    <ProjectReference Include="..\MediSync.Domain\MediSync.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
